@@ -11,7 +11,7 @@ import suppressionList  from "../lists/suppressionList.vue"
 import senderList  from "../lists/senderList.vue"
 import domainList  from "../lists/domainList .vue"
 import resultList  from "../lists/resultList.vue"
-
+import documentation from "../links/documentation.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [	
@@ -69,10 +69,17 @@ const router = createRouter({
 				{
 				path: 'resultList',
 				component: resultList
-				}							
-				]
-		}
-  ]
+				}	
+				,
+				{
+				path: 'documentation',
+				beforeEnter() {
+    			window.open('https://docs.brickstreetsoftware.com/display/BSC10r571/Brick_Street_Connect_Documentation.html', '_blank')
+  				},
+				component: documentation								
+				}]
+			}
+			]
 })
 
 export default router

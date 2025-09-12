@@ -1,22 +1,6 @@
 
 <template>
-  <sidebar-menu
-    v-model:collapsed="collapsed"
-    :menu="menu"
-    :theme="selectedTheme"
-    :show-one-child="true"
-    :smooth-scroll="true"
-    @update:collapsed="onToggleCollapse"
-    @item-click="onItemClick"
-  />
-    <div
-    v-if="isOnMobile && !collapsed"
-    class="sidebar-overlay"
-    @click="collapsed = true"
-  />
-  <div id="demo" :class="[{ collapsed: collapsed }, { onmobile: isOnMobile }]">
-    <div class="demo">
-      <div class="container">
+        <div class="container">
           Select theme:
           <select v-model="selectedTheme">
             <option
@@ -28,13 +12,29 @@
             </option>
           </select>
         </div>
-        <hr style="margin: 50px 0px; border: 1px solid #e3e3e3" />
+  <sidebar-menu
+    v-model:collapsed="collapsed"
+    :menu="menu"
+    :theme="selectedTheme"
+    :show-one-child="true"
+    :smooth-scroll="true"
+    @update:collapsed="onToggleCollapse"
+    @item-click="onItemClick"
+  />
+ <!--   <div
+    v-if="isOnMobile && !collapsed"
+    class="sidebar-overlay"
+    @click="collapsed = true"
+  />  -->
+ <!--    <div id="demo" :class="[{ collapsed: collapsed }, { onmobile: isOnMobile }]">--> 
+      <div class="demo">
+        <hr style="margin: 0px 0px; border: 1px solid #e3e3e3" />
         <router-view />
       </div>
-    </div>
+ <!--   </div>-->
 </template>
 
-<script type="ts">
+<script >
 import { h } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -56,84 +56,87 @@ export default {
   data() {
     return {
       menu: [
+        
         {
           header: 'Getting Started',
           hiddenOnCollapse: true,
         },
         {
-          href: '/',
+          href: '/mainLayout/documentation',
           title: 'Documentation',
-          icon: faIcon({ icon: 'fa-solid fa-download' }),
+          icon: faIcon({ icon: 'fa-solid fa-book' }),
         },
         {
-          href: '/basic-usage',
-          title: 'Basic Usage',
-          icon: faIcon({ icon: 'fa-solid fa-code' }),
-        },
-        {
-          header: 'Usage',
+          header: 'Main Modules',
           hiddenOnCollapse: true,
         },
         {
-          href: '/props',
-          title: 'Props',
-          icon: faIcon({ icon: 'fa-solid fa-cogs' }),
+          href: '/mainLayout/campaignList',
+          title: 'Campaigns',
+          icon: faIcon({ icon: 'fa-solid fa-bullhorn' }),
+        child: [
+            {
+              href: '/page/sub-page-1',
+              title: 'Properties',
+              icon: faIcon({ icon: 'fa-solid fa-arrow-right', size: 'sm' }),
+            },
+            {
+              href: '/page/sub-page-2',
+              title: 'Targeting',
+              icon: faIcon({ icon: 'fa-solid fa-arrow-right', size: 'sm' }),
+            },
+             {
+              href: '/page/sub-page-2',
+              title: 'Messages',
+              icon: faIcon({ icon: 'fa-solid fa-arrow-right', size: 'sm' }),
+            },
+             {
+              href: '/page/sub-page-2',
+              title: 'Results',
+              icon: faIcon({ icon: 'fa-solid fa-arrow-right', size: 'sm' }),
+            },
+          ],  
         },
         {
-          href: '/events',
-          title: 'Events',
-          icon: faIcon({ icon: 'fa-solid fa-bell' }),
+          href: '/mainLayout/conversationList',
+          title: 'Conversations',
+          icon: faIcon({ icon: 'fa-solid fa-list-ul' }),
         },
         {
           href: '/styling',
-          title: 'Styling',
+          title: 'Audience Models',
           icon: faIcon({ icon: 'fa-solid fa-palette' }),
         },
         {
           href: '/slots',
-          title: 'Slots',
+          title: 'Segment Models',
+          icon: faIcon({ icon: 'fa-solid fa-cubes' }),
+        },
+            {
+          href: '/mainLayout/conversationList',
+          title: 'Suppression Lists',
+          icon: faIcon({ icon: 'fa-solid fa-list-ul' }),
+        },
+        {
+          href: '/styling',
+          title: 'Sender Names',
+          icon: faIcon({ icon: 'fa-solid fa-palette' }),
+        },
+        {
+          href: '/slots',
+          title: 'Sender Domains',
+          icon: faIcon({ icon: 'fa-solid fa-cubes' }),
+        },
+                {
+          href: '/slots',
+          title: 'Results',
           icon: faIcon({ icon: 'fa-solid fa-cubes' }),
         },
         {
           component: separator,
         },
         {
-          header: 'Examples',
-          hiddenOnCollapse: true,
-        },
-        {
-          href: '/disabled',
-          title: 'Disabled page',
-          icon: faIcon({ icon: 'fa-solid fa-lock' }),
-          disabled: true,
-        },
-        {
-          title: 'Badge',
-          icon: faIcon({ icon: 'fa-solid fa-cog' }),
-          badge: {
-            text: 'new',
-            class: 'vsm--badge_default',
-          },
-        },
-        {
-//          href: '/page',
-          title: 'Dropdown Page',
-          icon: faIcon({ icon: 'fa-solid fa-list-ul' }),
-          child: [
-            {
-              href: '/page/sub-page-1',
-              title: 'Sub Page 01',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Sub Page 02',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            },
-          ],
-        },
-        {
-          title: 'Multiple Level',
+          title: 'Logout',
           icon: faIcon({ icon: 'fa-solid fa-list-alt' }),
           child: [
             {
@@ -176,7 +179,7 @@ export default {
       themes: [
         {
           name: 'Default theme',
-          input: '',
+          input: 'dark-theme',
         },
         {
           name: 'White theme',
