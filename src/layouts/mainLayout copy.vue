@@ -27,12 +27,12 @@ export default {
         {
           href: '/',
           title: 'On-Line Docs',
-          icon: faIcon({ icon: 'fa-solid fa-book' }),
+          icon: faIcon({ icon: 'fa-solid fa-info' }),
         },
         {
           href: '/basic-usage',
           title: 'On-Line Help',
-          icon: faIcon({ icon: 'fa-solid fa-circle-info' }),
+          icon: faIcon({ icon: 'fa-solid fa-question' }),
         },
         {
           header: 'Connect Modules',
@@ -43,12 +43,12 @@ export default {
           icon: faIcon({ icon: 'fa-solid fa-cogs' }),
               child: [
             {
-              href: '/mainLayout/campaignList',
+              href: '/page/sub-page-1',
               title: 'Definitions',
               icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
             },
             {
-              href: '/mainLayout/conversationList',
+              href: '/page/sub-page-2',
               title: 'Conversations/Lists',
               icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
             },
@@ -170,16 +170,16 @@ export default {
               icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
             },
             {
-              href: '/page/sub-page-1',
-              title: 'Instance Admin',
+              href: '/page/sub-page-2',
+              title: 'deployments',
               icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
             },
             {
-              href: '/page/sub-page-2',
-              title: 'Deployments',
+              href: '/page/sub-page-1',
+              title: 'Instance Admine',
               icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-              disabled: true,
-            },
+            }
+      
           ]
         },
         {
