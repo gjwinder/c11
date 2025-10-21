@@ -1,10 +1,16 @@
 
     <script setup lang="ts">
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted , getCurrentInstance } from 'vue';
     import axios from "axios"
     import { TabulatorFull as Tabulator } from 'tabulator-tables';
     import  'tabulator-tables/dist/css/tabulator_modern.min.css';
     import {DateTime} from 'luxon'
+
+const instance = getCurrentInstance();
+const API_BASE = ref(instance.appContext.config.globalProperties.$API_BASE_URL);
+const API_URL = "/api/campaign/list";
+//console.log( 'API_BASE_URL in campaignList.vue: ' + API_BASE.value + API_URL );
+const API_BASE_URL = API_BASE.value + API_URL;
     function link(cell: { getValue: () => any; }, formatterParams: any){
     var url = cell.getValue();
 		return "<a href='/components/campaignDetail"+url+"'>"+url+"</a>";
@@ -46,7 +52,8 @@
                     });
       });
     },
-              ajaxURL: "http://localhost:8080/api/campaign/list", // Your API endpoint
+//              ajaxURL:  API_BASE_URL, // Your API endpoint"http://localhost:8080/api/conversation/list", 
+              ajaxURL:  API_BASE_URL, // Your API endpoint", 
               ajaxParams: { _limit: 10 }, // Optional: parameters to send with the request
  
     });

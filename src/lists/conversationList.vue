@@ -1,10 +1,15 @@
     <script setup lang="ts">
     import axios from "axios"
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted , getCurrentInstance } from 'vue';
     import { TabulatorFull as Tabulator } from 'tabulator-tables';
     import  'tabulator-tables/dist/css/tabulator_modern.min.css';
     import  'tabulator-tables/dist/css/tabulator.min.css';
-    
+
+    const instance = getCurrentInstance();
+    const API_BASE = ref(instance.appContext.config.globalProperties.$API_BASE_URL);
+    const API_URL = "/api/conversation/list";
+//console.log( 'API_BASE_URL in conversationList.vue: ' + API_BASE.value + API_URL );
+    const API_BASE_URL = API_BASE.value + API_URL;
     function link(cell: { getValue: () => any; }, formatterParams: any){
     var url = cell.getValue();
 		return "<a href='/components/conversationDetail"+url+"'>"+url+"</a>";
@@ -22,7 +27,7 @@
           { title: 'ID', field: 'id', formatter:link, width:70 },
           { title: 'Conversation Name', field: 'name', width: 250,  sorter: 'string' },
           { title: 'Descripton', field: 'description', width: 380,  sorter: 'string' },
-          { title: 'Cust Count', field: 'customerCount', width: 30,  sorter: 'number' },
+          { title: 'Cust Count', field: 'customerCount', width: 140,  sorter: 'number' },
           { title: 'Update Date', field: 'updateDate', width: 145,  sorter: 'date' }         
         ],
           ajaxRequestFunc: function(ajaxURL, config, ajaxParams) {
@@ -38,7 +43,7 @@
                     });
       });
     },
-              ajaxURL: "http://localhost:8080/api/conversation/list", // Your API endpoint
+              ajaxURL: API_BASE_URL, // Your API endpoint
               ajaxParams: { _limit: 10 }, // Optional: parameters to send with the request
  
     });

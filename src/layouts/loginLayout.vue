@@ -16,7 +16,7 @@ const rawJSON = { 'username': this.username, 'password': this.password }
 //    const bodyJSON = JSON.stringify(rawJSON);
         try {
         console.log( 'Login Attempted!' + rawJSON );
-        const loginResponse = await axios.post('http://localhost:8080/api/auth/login', rawJSON );   
+        const loginResponse = await axios.post(this.$API_BASE_URL + '/api/auth/login', rawJSON );   
         const token = loginResponse.data.accessToken || loginResponse.data.token;
         console.log('Token received:', token); 
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;

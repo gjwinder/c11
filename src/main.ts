@@ -8,7 +8,7 @@ import './fontawesome'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const app = createApp(App)
-
+app.config.globalProperties.$API_BASE_URL = 'http://192.168.1.49:8080';
 app.use(router)
 app.use(VueSidebarMenu)
 app.mount('#app')
