@@ -84,8 +84,7 @@ export default {
             }
           ],
         },
-        {
-            
+        {           
           title: 'Customers',
           icon: faIcon({ icon: 'fa-solid fa-bell' }),
              child: [
@@ -108,9 +107,8 @@ export default {
               href: '/page/sub-page-2',
               title: 'Interests',
               icon: faIcon({ icon: 'fa-solid fa-eye', size: 'sm' }),
-            }
-          
-            
+            }         
+
           ],
         },
         {
@@ -190,74 +188,12 @@ export default {
           hiddenOnCollapse: true,
         },
         {
-          href: '/disabled',
-          title: 'Disabled page',
-          icon: faIcon({ icon: 'fa-solid fa-lock' }),
-          disabled: true,
-        },
-        {
           title: 'Badge',
           icon: faIcon({ icon: 'fa-solid fa-cog' }),
           badge: {
             text: 'new',
             class: 'vsm--badge_default',
           },
-        },
-        {
-//          href: '/page',
-          title: 'Dropdown Page',
-          icon: faIcon({ icon: 'fa-solid fa-list-ul' }),
-          child: [
-            {
-              href: '/page/sub-page-1',
-              title: 'Sub Page 01',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Sub Page 02',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            },
-          ],
-        },
-        {
-          title: 'Multiple Level',
-          icon: faIcon({ icon: 'fa-solid fa-list-alt' }),
-          child: [
-            {
-              title: 'page',
-            },
-            {
-              title: 'Level 2 ',
-              child: [
-                {
-                  title: 'page',
-                },
-                {
-                  title: 'Page',
-                },
-              ],
-            },
-            {
-              title: 'Page',
-            },
-            {
-              title: 'Another Level 2',
-              child: [
-                {
-                  title: 'Level 3',
-                  child: [
-                    {
-                      title: 'Page',
-                    },
-                    {
-                      title: 'Page',
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
         },
       ],
       collapsed: false,
