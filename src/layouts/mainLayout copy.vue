@@ -272,7 +272,7 @@ export default {
         },
         {
           name: 'Yellow theme',
-          input: 'Yellow-theme',
+          input: 'yellow-theme',
         },
       ],
       selectedTheme: 'white-theme',
