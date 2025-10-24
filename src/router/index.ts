@@ -5,6 +5,7 @@ import topMenu from "../components/topMenu.vue"
 import campaignSidebar from "../components/campaignSidebar.vue"
 import campaignList from "../lists/campaignList.vue"
 import conversationList  from "../lists/conversationList.vue"
+import customerList  from "../lists/customerList.vue"
 import audienceList  from "../lists/audienceList.vue"
 import segmentationList  from "../lists/segmentationList.vue"
 import suppressionList  from "../lists/suppressionList.vue"
@@ -40,6 +41,11 @@ const router = createRouter({
 				{
 				path: 'conversationList',
 				component: conversationList
+				}	
+				,
+				{
+				path: 'customerList',
+				component: customerList
 				}	
 				,
 				{

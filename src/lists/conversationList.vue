@@ -44,7 +44,7 @@
       });
     },
               ajaxURL: API_BASE_URL, // Your API endpoint
-              ajaxParams: { _limit: 10 }, // Optional: parameters to send with the request
+              ajaxParams: { _limit: 15 }, // Optional: parameters to send with the request
  
     });
   });

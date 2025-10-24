@@ -45,42 +45,42 @@ export default {
             {
               href: '/mainLayout/campaignList',
               title: 'Definitions',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-magnifying-glass', size: 'sm' }),
             },
             {
               href: '/mainLayout/conversationList',
               title: 'Conversations/Lists',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-comments', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'audience Models',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-people-arrows', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'segmentation Models',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-database', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Suppression Lists',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-wand-magic', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Sender Names',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-list', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Sender domains',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-square-share-nodes', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Results',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-list-check', size: 'sm' }),
             }
           ],
         },
@@ -92,22 +92,22 @@ export default {
             {
               href: '/page/sub-page-1',
               title: 'Customer Browser',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-window-restore', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Attributes',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-suitcase', size: 'sm' }),
             },
             {
               href: '/page/sub-page-1',
               title: 'Preferences',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-check', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Interests',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-eye', size: 'sm' }),
             }
           
             
@@ -120,37 +120,37 @@ export default {
             {
               href: '/page/sub-page-1',
               title: 'System Reports',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-hotel', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'activity Reports',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-square-envelope', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Conversion Reports',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-tag', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Message Status Report',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-champagne-glasses', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Tags Report',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-tags', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Campaign Summery',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-champagne-glasses', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Custom Reports',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-hotel', size: 'sm' }),
             }
            
           ],
@@ -167,17 +167,17 @@ export default {
             {
               href: '/page/sub-page-1',
               title: 'Company Admin',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-user-tie', size: 'sm' }),
             },
             {
               href: '/page/sub-page-1',
               title: 'Instance Admin',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-screwdriver-wrench', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Deployments',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-screwdriver', size: 'sm' }),
               disabled: true,
             },
           ]
