@@ -14,7 +14,6 @@ const faIcon = (props) => {
     element: h('div', [h(FontAwesomeIcon, { size: 'lg', ...props })]),
   }
 }
-
 export default {
   name: 'App',
   data() {
@@ -89,7 +88,7 @@ export default {
           icon: faIcon({ icon: 'fa-solid fa-bell' }),
              child: [
             {
-              href: '/page/sub-page-1',
+              href: '/mainLayout/customerList',
               title: 'Customer Browser',
               icon: faIcon({ icon: 'fa-solid fa-window-restore', size: 'sm' }),
             },
@@ -108,7 +107,6 @@ export default {
               title: 'Interests',
               icon: faIcon({ icon: 'fa-solid fa-eye', size: 'sm' }),
             }         
-
           ],
         },
         {
