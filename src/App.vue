@@ -12,10 +12,6 @@ import {RouterView} from "vue-router"
 </template>
 
 <style lang="scss">
-@use 'vue-sidebar-menu/src/scss/vue-sidebar-menu.scss' // with 
-//( 
- //    $base-bg: rgb(153, 227, 35), 
- //    $primary-color: rgb(58, 147, 102),                              
- //    $item-hover-bg: rgb(224, 230, 159),
- //   );
+@use 'vue-sidebar-menu/src/scss/vue-sidebar-menu.scss' // Seems to be Required (gary)
+
 </style>

@@ -21,7 +21,7 @@ const rawJSON = { 'username': this.username, 'password': this.password }
         console.log('Token received:', token); 
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         console.log( 'Login Attempted! Winner'  + ' Response:' + loginResponse.data );
-        this.$router.push('/mainLayout/campaignList'); 
+        this.$router.push('/mainLayout'); 
          } catch (error) {
         console.error( 'Error Logging In:', error );
                           }

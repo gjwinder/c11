@@ -1,11 +1,16 @@
-
     <script setup lang="ts">
-    import { ref, onMounted , getCurrentInstance } from 'vue';
+    import { ref, onMounted , getCurrentInstance} from 'vue';
     import axios from "axios"
     import { TabulatorFull as Tabulator } from 'tabulator-tables';
-    import  'tabulator-tables/dist/css/tabulator_modern.min.css';
+    import  'tabulator-tables/dist/css/tabulator_modern.min.css';   
     import {DateTime} from 'luxon'
 
+const props = defineProps({
+    theme: {
+    type: String,
+    default: undefined,
+  },
+})
 const instance = getCurrentInstance();
 const API_BASE = ref(instance.appContext.config.globalProperties.$API_BASE_URL);
 const API_URL = "/api/campaign/list";
@@ -61,14 +66,18 @@ const API_BASE_URL = API_BASE.value + API_URL;
 
 </script>
 <template>
-	<main id="campaignList">
-		<h1>Campaign List</h1>
+	<main class = "campaignList" >
+		<h1>Campaign List Theme:  {{ theme }}</h1>
 		<br></br>
-<div ref="tableContainer"> </div>
+      <div ref="tableContainer" > </div>
 	</main>
 </template>
-<style>
+<style lang="scss">
 
+.campaignList h1
+{
+  background-color:  --vsm-base-bg;
+}
 .CampaignTableContainer {
   float: left;
     width: 200px;

@@ -50,7 +50,7 @@ const API_BASE_URL = API_BASE.value + API_URL;
 </script>
 <template>
 	<main id="campaignList">
-		<h1>Customer Browser</h1>
+		<h1>CCustomer Browser</h1>
 		<br></br>
 <div ref="tableContainer"> </div>
 	</main>

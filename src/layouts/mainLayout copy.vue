@@ -1,7 +1,6 @@
 <script type="ts">
 import { h } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
 const separator = h('hr', {
   style: {
     borderColor: 'rgba(0, 0, 0, 0.1)',
@@ -14,7 +13,6 @@ const faIcon = (props) => {
     element: h('div', [h(FontAwesomeIcon, { size: 'lg', ...props })]),
   }
 }
-
 export default {
   name: 'App',
   data() {
@@ -27,12 +25,12 @@ export default {
         {
           href: '/',
           title: 'On-Line Docs',
-          icon: faIcon({ icon: 'fa-solid fa-info' }),
+          icon: faIcon({ icon: 'fa-solid fa-book' }),
         },
         {
           href: '/basic-usage',
           title: 'On-Line Help',
-          icon: faIcon({ icon: 'fa-solid fa-question' }),
+          icon: faIcon({ icon: 'fa-solid fa-circle-info' }),
         },
         {
           header: 'Connect Modules',
@@ -43,74 +41,71 @@ export default {
           icon: faIcon({ icon: 'fa-solid fa-cogs' }),
               child: [
             {
-              href: '/page/sub-page-1',
+              href: '/mainLayout/campaignList',
               title: 'Definitions',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-magnifying-glass', size: 'sm' }),
             },
             {
-              href: '/page/sub-page-2',
+              href: '/mainLayout/conversationList',
               title: 'Conversations/Lists',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-comments', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'audience Models',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-people-arrows', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'segmentation Models',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-database', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Suppression Lists',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-wand-magic', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Sender Names',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-list', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Sender domains',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-square-share-nodes', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Results',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-list-check', size: 'sm' }),
             }
           ],
         },
-        {
-            
+        {           
           title: 'Customers',
           icon: faIcon({ icon: 'fa-solid fa-bell' }),
              child: [
             {
-              href: '/page/sub-page-1',
+              href: '/mainLayout/customerList',
               title: 'Customer Browser',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-window-restore', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Attributes',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-suitcase', size: 'sm' }),
             },
             {
               href: '/page/sub-page-1',
               title: 'Preferences',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-check', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Interests',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            }
-          
-            
+              icon: faIcon({ icon: 'fa-solid fa-eye', size: 'sm' }),
+            }         
           ],
         },
         {
@@ -120,37 +115,37 @@ export default {
             {
               href: '/page/sub-page-1',
               title: 'System Reports',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-hotel', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'activity Reports',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-square-envelope', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Conversion Reports',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-tag', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Message Status Report',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-champagne-glasses', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Tags Report',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-tags', size: 'sm' }),
             },
             {
               href: '/page/sub-page-2',
               title: 'Campaign Summery',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-champagne-glasses', size: 'sm' }),
             },
                         {
               href: '/page/sub-page-1',
               title: 'Custom Reports',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-hotel', size: 'sm' }),
             }
            
           ],
@@ -162,102 +157,41 @@ export default {
         },
         {
           title: 'Admin',
-          icon: faIcon({ icon: 'fa-solid fa-cubes' }),
+          icon: faIcon({ icon: 'fa-solid fa-user-tie' }),
             child: [
             {
               href: '/page/sub-page-1',
               title: 'Company Admin',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'deployments',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
+              icon: faIcon({ icon: 'fa-solid fa-user-tie', size: 'sm' }),
             },
             {
               href: '/page/sub-page-1',
-              title: 'Instance Admine',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            }
-      
+              title: 'Instance Admin',
+              icon: faIcon({ icon: 'fa-solid fa-screwdriver-wrench', size: 'sm' }),
+            },
+            {
+              href: '/page/sub-page-2',
+              title: 'Deployments',
+              icon: faIcon({ icon: 'fa-solid fa-screwdriver', size: 'sm' }),
+              disabled: true,
+            },
           ]
         },
         {
           component: separator,
         },
         {
-          header: 'Examples',
+          header: 'Profile',
           hiddenOnCollapse: true,
         },
         {
-          href: '/disabled',
-          title: 'Disabled page',
-          icon: faIcon({ icon: 'fa-solid fa-lock' }),
-          disabled: true,
-        },
-        {
-          title: 'Badge',
+          href: '/',
+          title: 'Logout',
           icon: faIcon({ icon: 'fa-solid fa-cog' }),
           badge: {
             text: 'new',
             class: 'vsm--badge_default',
           },
-        },
-        {
-//          href: '/page',
-          title: 'Dropdown Page',
-          icon: faIcon({ icon: 'fa-solid fa-list-ul' }),
-          child: [
-            {
-              href: '/page/sub-page-1',
-              title: 'Sub Page 01',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Sub Page 02',
-              icon: faIcon({ icon: 'fa-solid fa-file-alt', size: 'sm' }),
-            },
-          ],
-        },
-        {
-          title: 'Multiple Level',
-          icon: faIcon({ icon: 'fa-solid fa-list-alt' }),
-          child: [
-            {
-              title: 'page',
-            },
-            {
-              title: 'Level 2 ',
-              child: [
-                {
-                  title: 'page',
-                },
-                {
-                  title: 'Page',
-                },
-              ],
-            },
-            {
-              title: 'Page',
-            },
-            {
-              title: 'Another Level 2',
-              child: [
-                {
-                  title: 'Level 3',
-                  child: [
-                    {
-                      title: 'Page',
-                    },
-                    {
-                      title: 'Page',
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
         },
       ],
       collapsed: false,
@@ -334,7 +268,9 @@ export default {
           </select>
         </div>
         <hr style="margin: 50px 0px; border: 1px solid #e3e3e3" />
-        <router-view />
+        <router-view 
+        :theme="selectedTheme"
+        />
       </div>
     </div>
 </template>

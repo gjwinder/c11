@@ -1,5 +1,5 @@
-<script type="ts">
-import { h } from 'vue'
+<script lang="ts">
+import { defineComponent, h, ref, onMounted, onBeforeUnmount } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const separator = h('hr', {
@@ -9,236 +9,304 @@ const separator = h('hr', {
   },
 })
 
-const faIcon = (props) => {
+const faIcon = (props: any) => {
   return {
     element: h('div', [h(FontAwesomeIcon, { size: 'lg', ...props })]),
   }
 }
-export default {
+
+export default defineComponent({
   name: 'App',
-  data() {
-    return {
-      menu: [
-        {
-          header: 'Connect 11.2 Documentation',
-          hiddenOnCollapse: true,
-        },
-        {
-          href: '/',
-          title: 'On-Line Docs',
-          icon: faIcon({ icon: 'fa-solid fa-book' }),
-        },
-        {
-          href: '/basic-usage',
-          title: 'On-Line Help',
-          icon: faIcon({ icon: 'fa-solid fa-circle-info' }),
-        },
-        {
-          header: 'Connect Modules',
-          hiddenOnCollapse: true,
-        },
-        {
-          title: 'Campaigns',
-          icon: faIcon({ icon: 'fa-solid fa-cogs' }),
-              child: [
-            {
-              href: '/mainLayout/campaignList',
-              title: 'Definitions',
-              icon: faIcon({ icon: 'fa-solid fa-magnifying-glass', size: 'sm' }),
-            },
-            {
-              href: '/mainLayout/conversationList',
-              title: 'Conversations/Lists',
-              icon: faIcon({ icon: 'fa-solid fa-comments', size: 'sm' }),
-            },
-                        {
-              href: '/page/sub-page-1',
-              title: 'audience Models',
-              icon: faIcon({ icon: 'fa-solid fa-people-arrows', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'segmentation Models',
-              icon: faIcon({ icon: 'fa-solid fa-database', size: 'sm' }),
-            },
-                        {
-              href: '/page/sub-page-1',
-              title: 'Suppression Lists',
-              icon: faIcon({ icon: 'fa-solid fa-wand-magic', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Sender Names',
-              icon: faIcon({ icon: 'fa-solid fa-list', size: 'sm' }),
-            },
-                        {
-              href: '/page/sub-page-1',
-              title: 'Sender domains',
-              icon: faIcon({ icon: 'fa-solid fa-square-share-nodes', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Results',
-              icon: faIcon({ icon: 'fa-solid fa-list-check', size: 'sm' }),
-            }
-          ],
-        },
-        {           
-          title: 'Customers',
-          icon: faIcon({ icon: 'fa-solid fa-bell' }),
-             child: [
-            {
-              href: '/mainLayout/customerList',
-              title: 'Customer Browser',
-              icon: faIcon({ icon: 'fa-solid fa-window-restore', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Attributes',
-              icon: faIcon({ icon: 'fa-solid fa-suitcase', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-1',
-              title: 'Preferences',
-              icon: faIcon({ icon: 'fa-solid fa-check', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Interests',
-              icon: faIcon({ icon: 'fa-solid fa-eye', size: 'sm' }),
-            }         
-          ],
-        },
-        {
-          title: 'Reports',
-          icon: faIcon({ icon: 'fa-solid fa-palette' }),
-            child: [
-            {
-              href: '/page/sub-page-1',
-              title: 'System Reports',
-              icon: faIcon({ icon: 'fa-solid fa-hotel', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'activity Reports',
-              icon: faIcon({ icon: 'fa-solid fa-square-envelope', size: 'sm' }),
-            },
-                        {
-              href: '/page/sub-page-1',
-              title: 'Conversion Reports',
-              icon: faIcon({ icon: 'fa-solid fa-tag', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Message Status Report',
-              icon: faIcon({ icon: 'fa-solid fa-champagne-glasses', size: 'sm' }),
-            },
-                        {
-              href: '/page/sub-page-1',
-              title: 'Tags Report',
-              icon: faIcon({ icon: 'fa-solid fa-tags', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Campaign Summery',
-              icon: faIcon({ icon: 'fa-solid fa-champagne-glasses', size: 'sm' }),
-            },
-                        {
-              href: '/page/sub-page-1',
-              title: 'Custom Reports',
-              icon: faIcon({ icon: 'fa-solid fa-hotel', size: 'sm' }),
-            }
-           
-          ],
-        },
-        {
-          href: '/slots',
-          title: 'Surveys',
-          icon: faIcon({ icon: 'fa-solid fa-cubes' }),
-        },
-        {
-          title: 'Admin',
-          icon: faIcon({ icon: 'fa-solid fa-cubes' }),
-            child: [
-            {
-              href: '/page/sub-page-1',
-              title: 'Company Admin',
-              icon: faIcon({ icon: 'fa-solid fa-user-tie', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-1',
-              title: 'Instance Admin',
-              icon: faIcon({ icon: 'fa-solid fa-screwdriver-wrench', size: 'sm' }),
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Deployments',
-              icon: faIcon({ icon: 'fa-solid fa-screwdriver', size: 'sm' }),
-              disabled: true,
-            },
-          ]
-        },
-        {
-          component: separator,
-        },
-        {
-          header: 'Examples',
-          hiddenOnCollapse: true,
-        },
-        {
-          title: 'Badge',
-          icon: faIcon({ icon: 'fa-solid fa-cog' }),
-          badge: {
-            text: 'new',
-            class: 'vsm--badge_default',
+  setup() {
+    const layoutRoot = ref<HTMLElement | null>(null)
+
+    const menu = ref<any[]>([
+      {
+        header: 'Connect 11.2 Documentation',
+        hiddenOnCollapse: true,
+      },
+      {
+        href: '/',
+        title: 'On-Line Docs',
+        icon: faIcon({ icon: 'fa-solid fa-book' }),
+      },
+      {
+        href: '/basic-usage',
+        title: 'On-Line Help',
+        icon: faIcon({ icon: 'fa-solid fa-circle-info' }),
+      },
+      {
+        header: 'Connect Modules',
+        hiddenOnCollapse: true,
+      },
+      {
+        title: 'Campaigns',
+        icon: faIcon({ icon: 'fa-solid fa-cogs' }),
+        child: [
+          {
+            href: '/mainLayout/campaignList',
+            title: 'Definitions',
+            icon: faIcon({ icon: 'fa-solid fa-magnifying-glass', size: 'sm' }),
           },
+          {
+            href: '/mainLayout/conversationList',
+            title: 'Conversations/Lists',
+            icon: faIcon({ icon: 'fa-solid fa-comments', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-1',
+            title: 'audience Models',
+            icon: faIcon({ icon: 'fa-solid fa-people-arrows', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'segmentation Models',
+            icon: faIcon({ icon: 'fa-solid fa-database', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-1',
+            title: 'Suppression Lists',
+            icon: faIcon({ icon: 'fa-solid fa-wand-magic', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'Sender Names',
+            icon: faIcon({ icon: 'fa-solid fa-list', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-1',
+            title: 'Sender domains',
+            icon: faIcon({ icon: 'fa-solid fa-square-share-nodes', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'Results',
+            icon: faIcon({ icon: 'fa-solid fa-list-check', size: 'sm' }),
+          },
+        ],
+      },
+      {
+        title: 'Customers',
+        icon: faIcon({ icon: 'fa-solid fa-bell' }),
+        child: [
+          {
+            href: '/mainLayout/customerList',
+            title: 'Customer Browser',
+            icon: faIcon({ icon: 'fa-solid fa-window-restore', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'Attributes',
+            icon: faIcon({ icon: 'fa-solid fa-suitcase', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-1',
+            title: 'Preferences',
+            icon: faIcon({ icon: 'fa-solid fa-check', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'Interests',
+            icon: faIcon({ icon: 'fa-solid fa-eye', size: 'sm' }),
+          },
+        ],
+      },
+      {
+        title: 'Reports',
+        icon: faIcon({ icon: 'fa-solid fa-palette' }),
+        child: [
+          {
+            href: '/page/sub-page-1',
+            title: 'System Reports',
+            icon: faIcon({ icon: 'fa-solid fa-hotel', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'activity Reports',
+            icon: faIcon({ icon: 'fa-solid fa-square-envelope', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-1',
+            title: 'Conversion Reports',
+            icon: faIcon({ icon: 'fa-solid fa-tag', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'Message Status Report',
+            icon: faIcon({ icon: 'fa-solid fa-champagne-glasses', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-1',
+            title: 'Tags Report',
+            icon: faIcon({ icon: 'fa-solid fa-tags', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'Campaign Summery',
+            icon: faIcon({ icon: 'fa-solid fa-champagne-glasses', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-1',
+            title: 'Custom Reports',
+            icon: faIcon({ icon: 'fa-solid fa-hotel', size: 'sm' }),
+          },
+        ],
+      },
+      {
+        href: '/slots',
+        title: 'Surveys',
+        icon: faIcon({ icon: 'fa-solid fa-cubes' }),
+      },
+      {
+        title: 'Admin',
+        icon: faIcon({ icon: 'fa-solid fa-user-tie' }),
+        child: [
+          {
+            href: '/page/sub-page-1',
+            title: 'Company Admin',
+            icon: faIcon({ icon: 'fa-solid fa-user-tie', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-1',
+            title: 'Instance Admin',
+            icon: faIcon({ icon: 'fa-solid fa-screwdriver-wrench', size: 'sm' }),
+          },
+          {
+            href: '/page/sub-page-2',
+            title: 'Deployments',
+            icon: faIcon({ icon: 'fa-solid fa-screwdriver', size: 'sm' }),
+            disabled: true,
+          },
+        ],
+      },
+      {
+        component: separator,
+      },
+      {
+        header: 'Profile',
+        hiddenOnCollapse: true,
+      },
+      {
+        href: '/',
+        title: 'Logout',
+        icon: faIcon({ icon: 'fa-solid fa-cog' }),
+        badge: {
+          text: 'new',
+          class: 'vsm--badge_default',
         },
-      ],
-      collapsed: false,
-      themes: [
-        {
-          name: 'Default theme',
-          input: '',
-        },
-        {
-          name: 'White theme',
-          input: 'white-theme',
-        },
-        {
-          name: 'Yellow theme',
-          input: 'yellow-theme',
-        },
-      ],
-      selectedTheme: 'white-theme',
-      isOnMobile: false,
-    }
-  },
-  mounted() {
-    this.onResize()
-    window.addEventListener('resize', this.onResize)
-  },
-  methods: {
-    onToggleCollapse(collapsed) {
+      },
+    ])
+
+    const collapsed = ref(false)
+    const themes = ref([
+      { name: 'Default theme', input: '' },
+      { name: 'White theme', input: 'white-theme' },
+      { name: 'Nuxt theme', input: 'nuxt-theme' },
+      { name: 'Yellow theme', input: 'yellow-theme' },
+    ])
+    const selectedTheme = ref('nuxt-theme')
+    const isOnMobile = ref(false)
+
+    let _vsmObserver: MutationObserver | null = null
+    let _docObserver: MutationObserver | null = null
+
+    const onToggleCollapse = (c: boolean) => {
       console.log('onToggleCollapse')
-    },
-    onItemClick(event, item) {
+    }
+
+    const onItemClick = (event: Event, item: any) => {
       console.log('onItemClick')
       // console.log(event)
       // console.log(item)
-    },
-    onResize() {
+    }
+
+    const onResize = () => {
       if (window.innerWidth <= 767) {
-        this.isOnMobile = true
-        this.collapsed = true
+        isOnMobile.value = true
+        collapsed.value = true
       } else {
-        this.isOnMobile = false
-        this.collapsed = false
+        isOnMobile.value = false
+        collapsed.value = false
       }
-    },
+    }
+
+    function syncVsmVar() {
+      try {
+        const sidebarEl = document.querySelector('.v-sidebar-menu') as HTMLElement | null
+        const rootEl = layoutRoot.value
+        if (!sidebarEl || !rootEl) return
+        const valueVsmBaseBg = getComputedStyle(sidebarEl).getPropertyValue('--vsm-base-bg')
+        if (valueVsmBaseBg) {
+          rootEl.style.setProperty('--vsm-base-bg', valueVsmBaseBg.trim())
+        }
+        const valueVsmDropDownBg = getComputedStyle(sidebarEl).getPropertyValue('--vsm-dropdown-bg')
+        if (valueVsmDropDownBg) {
+          rootEl.style.setProperty('--vsm-dropdown-bg', valueVsmDropDownBg.trim())
+        }
+        const valueItemColor = getComputedStyle(sidebarEl).getPropertyValue('--vsm-item-color')
+        if (valueItemColor) {
+          rootEl.style.setProperty('--vsm-item-color', valueItemColor.trim())
+        }
+      } catch (e) {
+        // fail silently
+      }
+    }
+
+    function startVsmObserver() {
+      const sidebarEl = document.querySelector('.v-sidebar-menu')
+      if (sidebarEl && !_vsmObserver) {
+        _vsmObserver = new MutationObserver(() => syncVsmVar())
+        _vsmObserver.observe(sidebarEl, { attributes: true, attributeFilter: ['class', 'style'] })
+      }
+      const docEl = document.documentElement || document.body
+      if (docEl && !_docObserver) {
+        _docObserver = new MutationObserver(() => syncVsmVar())
+        _docObserver.observe(docEl, { attributes: true, attributeFilter: ['class'] })
+      }
+    }
+
+    function stopVsmObserver() {
+      if (_vsmObserver) {
+        try {
+          _vsmObserver.disconnect()
+        } catch (e) {}
+        _vsmObserver = null
+      }
+      if (_docObserver) {
+        try {
+          _docObserver.disconnect()
+        } catch (e) {}
+        _docObserver = null
+      }
+    }
+
+    onMounted(() => {
+      onResize()
+      window.addEventListener('resize', onResize)
+      syncVsmVar()
+      startVsmObserver()
+    })
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', onResize)
+      stopVsmObserver()
+    })
+
+    return {
+      layoutRoot,
+      menu,
+      collapsed,
+      themes,
+      selectedTheme,
+      isOnMobile,
+      onToggleCollapse,
+      onItemClick,
+    }
   },
-}
+})
 </script>
 <template>
+  <div ref="layoutRoot" class="layout-root">
   <sidebar-menu
     v-model:collapsed="collapsed"
     :menu="menu"
@@ -253,8 +321,8 @@ export default {
     class="sidebar-overlay"
     @click="collapsed = true"
   />
-  <div id="demo" :class="[{ collapsed: collapsed }, { onmobile: isOnMobile }]">
-    <div class="demo">
+  <div id="topDiv" :class="[{ collapsed: collapsed }, { onmobile: isOnMobile }]">
+    <div class="topDiv">
       <div class="container">
           Select theme:
           <select v-model="selectedTheme">
@@ -268,9 +336,12 @@ export default {
           </select>
         </div>
         <hr style="margin: 50px 0px; border: 1px solid #e3e3e3" />
-        <router-view />
+        <router-view 
+        :theme="selectedTheme"
+        />
       </div>
     </div>
+  </div>
 </template>
 
 <style lang="scss">
@@ -289,14 +360,35 @@ body {
   color: #262626;
 }
 
-#demo {
+#topDiv {
   padding-left: 290px;
   transition: 0.3s ease;
 }
-#demo.collapsed {
+.layout-root {
+  /* expose a local copy of the sidebar variable so scoped/local styles can read it
+     fallback to the existing page background when the variable isn't present */
+  --vsm-base-bg: var(--vsm-base-bg, #f2f4f7);
+  --vsm-dropdown-bg: var(--vsm-dropdown-bg, #e3e3e3);
+  --vsm-item-color: var(--vsm-item-color, #e3e3e3);
+}
+/* Add a visible 2px right border to the sidebar menu. Use the synced dropdown bg
+   as the border color with a sensible fallback. Keep box-sizing so the layout
+   accounts for the border width. */
+.layout-root > .v-sidebar-menu {
+  box-sizing: border-box;
+  //border-right: 1px solid var(--vsm-dropdown-bg, #e3e3e3);
+  border-right: 1px solid  #bcbbbb;
+}
+#topDiv {
+  /* use the synced variable for the main demo area background */
+  //background: var(--vsm-base-bg, #f2f4f7);
+  background: var(--vsm-dropdown-bg, #e3e3e3);
+  color :var(--vsm-item-color, #e3e3e3);
+}
+#topDiv.collapsed {
   padding-left: 65px;
 }
-#demo.onmobile {
+#topDiv.onmobile {
   padding-left: 65px;
 }
 
@@ -311,7 +403,7 @@ body {
   z-index: 900;
 }
 
-.demo {
+.topDiv {
   padding: 50px;
 }
 
