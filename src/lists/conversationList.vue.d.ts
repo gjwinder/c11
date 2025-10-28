@@ -1,0 +1,4 @@
+import 'tabulator-tables/dist/css/tabulator_modern.min.css';
+import 'tabulator-tables/dist/css/tabulator.min.css';
+declare const _default: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
+export default _default;

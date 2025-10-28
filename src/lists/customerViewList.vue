@@ -2,7 +2,7 @@
     import { ref, onMounted , getCurrentInstance } from 'vue';
     import axios from "axios"
     import { TabulatorFull as Tabulator } from 'tabulator-tables';
-    import  'tabulator-tables/dist/css/tabulator_modern.min.css';
+    import  'tabulator-tables/dist/css/tabulator.css';
     import {DateTime} from 'luxon'
 
 const instance = getCurrentInstance();
@@ -19,13 +19,18 @@ const API_BASE_URL = API_BASE.value + API_URL;
 
     onMounted(() => {
       let tabulatorInstance = new Tabulator(tableContainer.value, {
-        height: "450px",
+        height: "600px", width: "1040px",
         layout: 'fitDataTable',
         columns: [
-          { title: 'ID', field: 'CUSTOMER_ID', formatter:link, width:70 },
-          { title: 'First Name', field: 'FIRST_NAME', width: 250,  sorter: 'string' },
-          { title: 'Surname', field: 'LAST_NAME', width: 380,  sorter: 'string' },
-          { title: 'Email Address', field: 'ACTIVE_EMAIL_ADDRESS', width: 350,  sorter: 'string' }
+          { title: 'ID', field: 'CUSTOMER_ID', formatter:link, width:100 },
+          { title: 'Alt ID', field: 'ALT_CUSTOMER_ID', formatter:link, width:100 },          
+          { title: 'First Name', field: 'FIRST_NAME', width: 130,  sorter: 'string' },
+          { title: 'Middle Name', field: 'MIDDLE_NAME', width: 140,  sorter: 'string' },          
+          { title: 'Surname', field: 'LAST_NAME', width: 120,  sorter: 'string' },
+          { title: 'Email Address', field: 'ACTIVE_EMAIL_ADDRESS', formatter:link, width: 300,  sorter: 'string' },
+          { title: 'Phone #', field: 'PHONE', width: 150,  sorter: 'string' },
+          { title: 'SMS #', field: 'SMS_NUMBER', width: 150,  sorter: 'string' },
+          { title: 'Last Updated', field: 'UPDATE_DATETIME', width: 200,  sorter: 'string' },          
         ],
             ajaxRequestFunc: function(ajaxURL, config, ajaxParams) {
               return new Promise(function(resolve, reject) {
@@ -50,7 +55,7 @@ const API_BASE_URL = API_BASE.value + API_URL;
 </script>
 <template>
 	<main id="campaignList">
-		<h1>CCustomer Browser</h1>
+		<h1>Customer Browser</h1>
 		<br></br>
 <div ref="tableContainer"> </div>
 	</main>
@@ -64,7 +69,7 @@ const API_BASE_URL = API_BASE.value + API_URL;
 
 .tabulator .tabulator-header .tabulator-col {
         background-color: #15262b; /* Dark example */
-  width: 1040px;
+        width: 1040px;
 }
 
 .tabulator-col-title {
@@ -74,9 +79,12 @@ const API_BASE_URL = API_BASE.value + API_URL;
         color: #f8f4f4; /* White text example */
 }
 
-.tabulator {
+.tabulator .tabulator-row{
   background-color: #f8f4f4; /* Or any desired color */
   border: 0;
+  font-family: "Avenir, sans-serif;";
+  font-size: 16px;
+  -webkit-text-fill-color:   var(--vsm-item-color, #920d0d);
 }
 
 </style>

@@ -2,7 +2,7 @@
     import { ref, onMounted , getCurrentInstance} from 'vue';
     import axios from "axios"
     import { TabulatorFull as Tabulator } from 'tabulator-tables';
-    import  'tabulator-tables/dist/css/tabulator_modern.min.css';   
+    import  'tabulator-tables/dist/css/tabulator.css'; 
     import {DateTime} from 'luxon'
 
 const props = defineProps({
@@ -67,7 +67,7 @@ const API_BASE_URL = API_BASE.value + API_URL;
 </script>
 <template>
 	<main class = "campaignList" >
-		<h1>Campaign List Theme:  {{ theme }}</h1>
+		<h1>Campaign List</h1>
 		<br></br>
       <div ref="tableContainer" > </div>
 	</main>
@@ -85,7 +85,7 @@ const API_BASE_URL = API_BASE.value + API_URL;
 
 .tabulator .tabulator-header .tabulator-col {
         background-color: #15262b; /* Dark example */
-  width: 1040px;
+        width: 1040px;
 }
 
 .tabulator-col-title {
@@ -95,9 +95,11 @@ const API_BASE_URL = API_BASE.value + API_URL;
         color: #f8f4f4; /* White text example */
 }
 
-.tabulator {
+.tabulator .tabulator-row{
   background-color: #f8f4f4; /* Or any desired color */
   border: 0;
+  font-family: "Avenir, sans-serif;";
+  font-size: 16px;
+  -webkit-text-fill-color:   var(--vsm-item-color, #e3e3e3);
 }
-
 </style>

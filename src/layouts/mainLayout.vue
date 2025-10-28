@@ -41,6 +41,7 @@ export default defineComponent({
       },
       {
         title: 'Campaigns',
+        href: '/mainLayout',
         icon: faIcon({ icon: 'fa-solid fa-cogs' }),
         child: [
           {
@@ -87,7 +88,8 @@ export default defineComponent({
       },
       {
         title: 'Customers',
-        icon: faIcon({ icon: 'fa-solid fa-bell' }),
+        href: '/mainLayout',   
+        icon: faIcon({ icon: 'fa-solid fa-bell' }),     
         child: [
           {
             href: '/mainLayout/customerList',
@@ -113,6 +115,7 @@ export default defineComponent({
       },
       {
         title: 'Reports',
+        href: '/mainLayout',
         icon: faIcon({ icon: 'fa-solid fa-palette' }),
         child: [
           {
@@ -153,12 +156,13 @@ export default defineComponent({
         ],
       },
       {
-        href: '/slots',
         title: 'Surveys',
+        href: '/mainLayout',
         icon: faIcon({ icon: 'fa-solid fa-cubes' }),
       },
       {
         title: 'Admin',
+        href: '/mainLayout',
         icon: faIcon({ icon: 'fa-solid fa-user-tie' }),
         child: [
           {
@@ -204,7 +208,7 @@ export default defineComponent({
       { name: 'Nuxt theme', input: 'nuxt-theme' },
       { name: 'Yellow theme', input: 'yellow-theme' },
     ])
-    const selectedTheme = ref('nuxt-theme')
+    const selectedTheme = ref('yellow-theme')
     const isOnMobile = ref(false)
 
     let _vsmObserver: MutationObserver | null = null
@@ -335,7 +339,7 @@ export default defineComponent({
             </option>
           </select>
         </div>
-        <hr style="margin: 50px 0px; border: 1px solid #e3e3e3" />
+
         <router-view 
         :theme="selectedTheme"
         />
@@ -384,12 +388,13 @@ body {
   //background: var(--vsm-base-bg, #f2f4f7);
   background: var(--vsm-dropdown-bg, #e3e3e3);
   color :var(--vsm-item-color, #e3e3e3);
+  padding: 10px;
 }
 #topDiv.collapsed {
-  padding-left: 65px;
+  padding-left: 0%;
 }
 #topDiv.onmobile {
-  padding-left: 65px;
+  padding-left: 5px;
 }
 
 .sidebar-overlay {
@@ -401,10 +406,6 @@ body {
   background-color: #000;
   opacity: 0.5;
   z-index: 900;
-}
-
-.topDiv {
-  padding: 50px;
 }
 
 .container {

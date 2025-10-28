@@ -14,7 +14,7 @@
     onMounted(() => {
       let tabulatorInstance = new Tabulator(tableContainer.value, {
 //        ajaxURL: 'http://localhost:8080/api/campaign/list', // Your JSON-server endpoint
-        height: "450px",
+        height: "650px",
         layout: 'fitDataTable',
         columns: [
           { title: 'ID', field: 'campaign_id', formatter:link, width:70 },
