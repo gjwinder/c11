@@ -24,6 +24,7 @@ const rawJSON = { 'username': this.username, 'password': this.password }
         this.$router.push('/mainLayout'); 
          } catch (error) {
         console.error( 'Error Logging In:', error );
+        window.alert('Invalid Username/password - Please try again.!');
                           }
     
     }

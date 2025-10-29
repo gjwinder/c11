@@ -18,8 +18,9 @@
   border: 0;
   font-family: "Fira sans", sans-serif; /* Set the font family */
   font-size: 14px;
-  -webkit-text-fill-color:   var(--vsm-item-color, #e3e3e3);
-  .tabulator-row .tabulator-cell:first-child {
+  -webkit-text-fill-color: rgb(50, 47, 47);
+}
+.tabulator-row .tabulator-cell:first-child {
   border-left: 10px solid #858789;
 }     
 
@@ -30,5 +31,4 @@
 .tabulator {
   background-color: #f8f4f4; /* Or any desired color */
   border: 0;
-}
 }
