@@ -50,22 +50,22 @@
   });
   </script>
 <template>
-	<main id="conversationList">
+	<main class = "conversationList" >
 		<h1>Conversation List</h1>
 		<br></br>
 <div ref="tableContainer"> </div>
 	</main>
 </template>
-<style>
-.tabulator-row .tabulator-cell:first-child {
-  border-left: 10px solid #858789;
-}     
-.tabulator-row:nth-child(2n) .tabulator-cell:first-child {
-  border-left: 10px solid #d9d9d3; 
-}  
+<style lang="scss">
+@use '../styles/tabulatorStyles.css';
 
-.tabulator {
-  background-color: #f8f4f4; /* Or any desired color */
-  border: 0;
+.conversationList h1
+{
+  background-color:  --vsm-base-bg;
 }
+.CnversationTableContainer {
+  float: left;
+    width: 200px;
+}
+
 </style>

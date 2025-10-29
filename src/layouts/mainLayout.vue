@@ -188,6 +188,7 @@ export default defineComponent({
       },
       {
         header: 'Profile',
+        href: '/mainLayout',
         hiddenOnCollapse: true,
       },
       {
@@ -204,6 +205,7 @@ export default defineComponent({
     const collapsed = ref(false)
     const themes = ref([
       { name: 'Default theme', input: '' },
+      { name: 'Dark theme', input: 'dark-theme' },
       { name: 'White theme', input: 'white-theme' },
       { name: 'Nuxt theme', input: 'nuxt-theme' },
       { name: 'Yellow theme', input: 'yellow-theme' },

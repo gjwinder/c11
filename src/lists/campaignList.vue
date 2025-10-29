@@ -73,6 +73,7 @@ const API_BASE_URL = API_BASE.value + API_URL;
 	</main>
 </template>
 <style lang="scss">
+@use '../styles/tabulatorStyles.css';
 
 .campaignList h1
 {
@@ -83,23 +84,5 @@ const API_BASE_URL = API_BASE.value + API_URL;
     width: 200px;
 }
 
-.tabulator .tabulator-header .tabulator-col {
-        background-color: #15262b; /* Dark example */
-        width: 1040px;
-}
 
-.tabulator-col-title {
-        font-family: "Fira sans", sans-serif; /* Set the font family */
-        font-size: 18px; /* Set the font size */
-        font-weight:200;
-        color: #f8f4f4; /* White text example */
-}
-
-.tabulator .tabulator-row{
-  background-color: #f8f4f4; /* Or any desired color */
-  border: 0;
-  font-family: "Avenir, sans-serif;";
-  font-size: 16px;
-  -webkit-text-fill-color:   var(--vsm-item-color, #e3e3e3);
-}
 </style>

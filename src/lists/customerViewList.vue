@@ -14,7 +14,7 @@ const API_BASE_URL = API_BASE.value + API_URL;
     var url = cell.getValue();
 		return "<a href='/components/campaignDetail"+url+"'>"+url+"</a>";
 	}
-    const tableContainer = ref("CampaignTableContainer");
+    const tableContainer = ref("CustomerTableContainer");
 //    let tabulatorInstance: Tabulator | null;
 
     onMounted(() => {
@@ -54,37 +54,32 @@ const API_BASE_URL = API_BASE.value + API_URL;
 
 </script>
 <template>
-	<main id="campaignList">
+	<main class="customerViewList">
 		<h1>Customer Browser</h1>
 		<br></br>
 <div ref="tableContainer"> </div>
 	</main>
 </template>
-<style>
+
+<style lang="scss">
+@use '../styles/tabulatorStyles.css';
+
+.customerViewList h1
+{
+  background-color:  --vsm-base-bg;
+}
+.CustomerTableContainer {
+  float: left;
+    width: 200px;
+}
 
 .CampaignTableContainer {
   float: left;
     width: 200px;
 }
-
-.tabulator .tabulator-header .tabulator-col {
-        background-color: #15262b; /* Dark example */
+.CampaignTableContainer .tabulator .tabulator-header .tabulator-col {
+        background-color: #70ca16; /* Dark example */
         width: 1040px;
-}
-
-.tabulator-col-title {
-        font-family: "Fira sans", sans-serif; /* Set the font family */
-        font-size: 18px; /* Set the font size */
-        font-weight:200;
-        color: #f8f4f4; /* White text example */
-}
-
-.tabulator .tabulator-row{
-  background-color: #f8f4f4; /* Or any desired color */
-  border: 0;
-  font-family: "Avenir, sans-serif;";
-  font-size: 16px;
-  -webkit-text-fill-color:   var(--vsm-item-color, #920d0d);
 }
 
 </style>

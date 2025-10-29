@@ -1,0 +1,34 @@
+.tabulator .tabulator-header .tabulator-col-content{
+    background-color: var(--vsm-item-color, #e3e3e3);
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+}
+.tabulator .tabulator-header .tabulator-col .tabulator-col-title  {
+        font-family: "Fira sans", sans-serif; /* Set the font family */
+        font-size: 16px; /* Set the font size */
+        font-weight:bold;
+        background-color: var(--vsm-item-color, #e3e3e3);
+        color: var(--vsm-item-open-color, #e3e3e3);
+        width: 2040px;
+}
+
+.tabulator .tabulator-row{
+  background-color: #f8f4f4; /* Or any desired color */
+  border: 0;
+  font-family: "Fira sans", sans-serif; /* Set the font family */
+  font-size: 14px;
+  -webkit-text-fill-color:   var(--vsm-item-color, #e3e3e3);
+  .tabulator-row .tabulator-cell:first-child {
+  border-left: 10px solid #858789;
+}     
+
+.tabulator-row:nth-child(2n) .tabulator-cell:first-child {
+  border-left: 10px solid #d9d9d3; 
+}  
+
+.tabulator {
+  background-color: #f8f4f4; /* Or any desired color */
+  border: 0;
+}
+}
