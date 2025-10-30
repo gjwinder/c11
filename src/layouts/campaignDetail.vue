@@ -73,7 +73,7 @@ const API_BASE_URL = API_BASE.value + API_URL;
 	</main>
 </template>
 <style lang="scss">
-@use '../styles/tabulatorStyles.css';
+@use '@/styles/tabulatorStyles.css';
 
 .campaignList h1
 {
