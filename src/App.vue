@@ -238,10 +238,30 @@ const themes = ref<Theme[]>([
   { name: 'Dark theme', input: 'dark-theme' },
   { name: 'White theme', input: 'white-theme' },
   { name: 'Nuxt theme', input: 'nuxt-theme' },
-  { name: 'Yellow theme', input: 'yellow-theme' },
+  { name: 'Emma`s theme', input: 'yellow-theme' },
 ])
 const selectedTheme = ref('yellow-theme')
 const isOnMobile = ref(false)
+
+// Theme selector rendered as a small functional component and inserted into the menu
+const ThemeSelector = () =>
+  h('div', { class: 'vsm-theme-selector', style: { padding: '8px' } }, [
+    h('div', { style: { marginBottom: '6px', fontWeight: 600 } }, ),
+    h(
+      'select',
+      {
+        value: selectedTheme.value,
+        onChange: (e: Event) => {
+          selectedTheme.value = (e.target as HTMLSelectElement).value
+        },
+      },
+      themes.value.map((t) => h('option', { value: t.input }, t.name))
+    ),
+  ])
+
+const themeSelectorVNode = h(ThemeSelector)
+// insert theme selector at the top of the menu so it appears inside the sidebar
+menu.value.unshift({ component: themeSelectorVNode, hiddenOnCollapse: true })
 
 let _vsmObserver: MutationObserver | null = null
 let _docObserver: MutationObserver | null = null
@@ -348,16 +368,7 @@ onBeforeUnmount(() => {
     <div id="topDiv" :class="[{ collapsed: collapsed }, { onmobile: isOnMobile }]">
       <div class="topDiv">
         <div class="container">
-          Select theme:
-          <select v-model="selectedTheme">
-            <option
-              v-for="(theme, index) in themes"
-              :key="index"
-              :value="theme.input"
-            >
-              {{ theme.name }}
-            </option>
-          </select>
+          <!-- Theme select moved into the sidebar menu (top) -->
         </div>
         <router-view :theme="selectedTheme" />
       </div>
@@ -431,5 +442,16 @@ body {
 
 .container {
   max-width: 900px;
+}
+
+/* Sidebar theme selector styling */
+.vsm-theme-selector {
+  padding: 8px 12px;
+}
+.vsm-theme-selector select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.12);
 }
 </style>
