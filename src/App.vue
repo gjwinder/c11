@@ -357,6 +357,7 @@ onBeforeUnmount(() => {
       :theme="selectedTheme"
       :show-one-child="true"
       :smooth-scroll="true"
+      class="layout-sidebar"
       @update:collapsed="onToggleCollapse"
       @item-click="onItemClick"
     />
@@ -365,14 +366,14 @@ onBeforeUnmount(() => {
       class="sidebar-overlay"
       @click="collapsed = true"
     />
-    <div id="topDiv" :class="[{ collapsed: collapsed }, { onmobile: isOnMobile }]">
-      <div class="topDiv">
+    <main class="layout-main" :class="[{ collapsed: collapsed }, { onmobile: isOnMobile }]">
+      <div class="content-wrapper">
         <div class="container">
           <!-- Theme select moved into the sidebar menu (top) -->
         </div>
         <router-view :theme="selectedTheme" />
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -384,6 +385,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 body {
@@ -393,40 +395,61 @@ body {
   color: #262626;
 }
 
-#topDiv {
-  padding-left: 290px;
-  transition: 0.3s ease;
-}
-
 .layout-root {
   /* expose a local copy of the sidebar variable so scoped/local styles can read it
      fallback to the existing page background when the variable isn't present */
   --vsm-base-bg: var(--vsm-base-bg, #f2f4f7);
   --vsm-dropdown-bg: var(--vsm-dropdown-bg, #e3e3e3);
   --vsm-item-color: var(--vsm-item-color, #e3e3e3);
+  --sidebar-width: 290px;
+  --sidebar-collapsed-width: 50px;
+  
+  display: flex;
+  min-height: 100vh;
+  position: relative;
 }
 
-/* Add a visible 2px right border to the sidebar menu. Use the synced dropdown bg
-   as the border color with a sensible fallback. Keep box-sizing so the layout
-   accounts for the border width. */
-.layout-root > .v-sidebar-menu {
-  box-sizing: border-box;
+/* Layout sidebar styles */
+.layout-sidebar {
+  position: relative !important; /* Override the default fixed position */
+  height: 100vh;
+  flex-shrink: 0;
   border-right: 1px solid #bcbbbb;
+  z-index: 1;
 }
 
-#topDiv {
-  /* use the synced variable for the main demo area background */
+/* Layout main content area */
+.layout-main {
+  flex: 1;
+  min-width: 0; /* Prevent flex item from overflowing */
   background: var(--vsm-dropdown-bg, #e3e3e3);
   color: var(--vsm-item-color, #e3e3e3);
-  padding: 10px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
 }
 
-#topDiv.collapsed {
-  padding-left: 0%;
+/* Content wrapper for proper spacing */
+.content-wrapper {
+  height: 100%;
+  max-width: 100%;
 }
 
-#topDiv.onmobile {
-  padding-left: 5px;
+/* Mobile styles */
+@media (max-width: 767px) {
+  .layout-sidebar {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+  }
+  
+  .layout-main {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .layout-main.onmobile {
+    padding: 10px;
+  }
 }
 
 .sidebar-overlay {
