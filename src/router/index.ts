@@ -4,7 +4,7 @@ import mainlayout from "../layouts/mainLayout.vue"
 import topMenu from "../components/topMenu.vue"
 import campaignSidebar from "../components/campaignSidebar.vue"
 import campaignList from "../lists/campaignList.vue"
-import campaignDetail from "../objectPages/campaign/campaignDetail.vue"
+import campaignDetail from "../components/campaigns/campaignDetail.vue"
 import conversationList  from "../lists/conversationList.vue"
 import customerList  from "../lists/customerViewList.vue"
 import audienceList  from "../lists/audienceList.vue"
@@ -39,6 +39,11 @@ const router = createRouter({
 				path: 'campaignList',
 				component: campaignList
 				},
+				{
+				path: 'campaignDetail',
+				component: campaignDetail
+				}	
+				,
 				{
 				path: 'conversationList',
 				component: conversationList
@@ -76,11 +81,6 @@ const router = createRouter({
 				{
 				path: 'resultList',
 				component: resultList
-				}	
-				,
-				{
-				path: 'campaignDetail',
-				component: campaignDetail
 				}	
 				,
 				{
