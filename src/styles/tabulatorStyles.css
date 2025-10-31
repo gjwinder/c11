@@ -27,7 +27,9 @@
 .tabulator-row:nth-child(2n) .tabulator-cell:first-child {
   border-left: 10px solid #d9d9d3; 
 }  
-
+.tabulator-tableholder {
+  background-color: var(--vsm-item-color); 
+}
 .tabulator {
   background-color: #f8f4f4; /* Or any desired color */
   border: 0;

@@ -85,7 +85,7 @@ const menu = ref<MenuItem[]>([
         icon: faIcon({ icon: 'fa-solid fa-comments', size: 'sm' }),
       },
       {
-        href: '/mainLayout/campaignDetail',
+        href: '/mainLayout/audienceList',
         title: 'audience Models',
         icon: faIcon({ icon: 'fa-solid fa-people-arrows', size: 'sm' }),
       },
@@ -238,7 +238,9 @@ const themes = ref<Theme[]>([
   { name: 'Dark theme', input: 'dark-theme' },
   { name: 'White theme', input: 'white-theme' },
   { name: 'Nuxt theme', input: 'nuxt-theme' },
-  { name: 'Emma`s theme', input: 'yellow-theme' },
+  { name: 'Emma`s theme', input: 'emma-theme' },
+  { name: 'Yellow theme', input: 'yellow-theme' },
+
 ])
 const selectedTheme = ref('yellow-theme')
 const isOnMobile = ref(false)
