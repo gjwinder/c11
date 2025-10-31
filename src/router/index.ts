@@ -40,8 +40,9 @@ const router = createRouter({
 				component: campaignList
 				},
 				{
-				path: 'campaignDetail',
-				component: campaignDetail
+				path: 'campaignDetail/:id',
+				component: campaignDetail,
+				name: 'campaignDetail'
 				}	
 				,
 				{
