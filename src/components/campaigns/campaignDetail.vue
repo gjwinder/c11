@@ -40,41 +40,44 @@ const props = defineProps({
 })
 
 const instance = getCurrentInstance()
-const API_BASE = ref(instance?.appContext.config.globalProperties.$API_BASE_URL)
+const API_BASE = ref(instance.appContext.config.globalProperties.$API_BASE_URL)
+console.log('API_BASE in campaignDetail.vue: ' + API_BASE.value)
 const API_URL = "/api/campaign"
 
-const campaign = ref<Campaign>({
-  id: 214,
-  name: "10000 List 2nd Test (ID=214)",
-  description: "10000 SMS",
-  type: 1,
-  departmentID: 100,
-  languageID: 1,
-  mailFarmID: 1,
-  expirationDate: null,
-  neverExpires: true,
-  expirationChosen: true,
-  conversationID: 165,
-  audienceModelID: 1,
-  segmentModelID: 1,
-  quietLevel: "SYSTEM",
-  quietPeriodObjs: null,
-  companyID: 0,
-  campaignType: "Normal",
-  dataLoadDate: null,
-  priority: 50,
-  quietPeriod: {
-    quietLevel: "SYSTEM",
-    campaignQuietPeriods: null,
-    companyQuietPeriods: null,
-    systemQuietPeriods: null
+
+const campaign = ref<Campaign | null>(null)
+
+// Example: get campaignId from route params (if using vue-router)
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const campaignId = route.params.id || 214 // fallback to 214 if not provided
+console.log('Campaign ID in campaignDetail.vue: ' + campaignId)
+const fetchCampaign = async () => {
+  try {
+    const response = await axios.get(`${API_BASE.value}${API_URL}/id/${campaignId}`)
+    campaign.value = response.data
+  } catch (error) {
+    console.error('Error fetching campaign:', error)
   }
+}
+
+onMounted(() => {
+  fetchCampaign()
 })
 
 const saveCampaign = async () => {
   try {
-    const response = await axios.post(`${API_BASE.value}${API_URL}`, campaign.value)
-    console.log('Campaign saved:', response.data)
+    if (!campaign.value) {
+      console.warn('No campaign data to save')
+      return
+    }
+    // send the campaign object as JSON payload in the PUT request
+    const response = await axios.put(
+      `${API_BASE.value}${API_URL}/id/${campaignId}/type/normal`,
+      campaign.value,
+      { headers: { 'Content-Type': 'application/json' } }
+    )
+    alert('Campaign Saved Successfully')
   } catch (error) {
     console.error('Error saving campaign:', error)
   }
@@ -85,7 +88,7 @@ const saveCampaign = async () => {
 <template>
   <div class="campaign-detail">
     <h1>Campaign Detail</h1>
-    <form @submit.prevent="saveCampaign" class="campaign-form">
+    <form v-if="campaign" @submit.prevent="saveCampaign" class="campaign-form">
       <div class="form-grid">
         <!-- Basic Information -->
         <div class="form-section">
@@ -221,6 +224,7 @@ const saveCampaign = async () => {
         <button type="submit" class="btn-save">Save Campaign</button>
       </div>
     </form>
+    <div v-else class="loading">Loading campaign data...</div>
   </div>
 </template>
 
