@@ -61,11 +61,6 @@ const menu = ref<MenuItem[]>([
     icon: faIcon({ icon: 'fa-solid fa-book' }),
   },
   {
-    href: '/',
-    title: 'On-Line Help',
-    icon: faIcon({ icon: 'fa-solid fa-circle-info' }),
-  },
-  {
     header: 'Connect Modules',
     hiddenOnCollapse: true,
   },
@@ -118,8 +113,8 @@ const menu = ref<MenuItem[]>([
   },
   {
     title: 'Customers',
-    href: '/mainLayout',   
-    icon: faIcon({ icon: 'fa-solid fa-bell' }),     
+    href: '/mainLayout',
+    icon: faIcon({ icon: 'fa-solid fa-bell' }),
     child: [
       {
         href: '/mainLayout/customerList',
@@ -214,6 +209,47 @@ const menu = ref<MenuItem[]>([
     ],
   },
   {
+    header: 'Wizards',
+    href: '/mainLayout',
+    hiddenOnCollapse: true,
+  },
+  {
+    href: '/',
+    title: 'Campaign Wizard',
+    icon: faIcon({ icon: 'fa-solid fa-wand-magic-sparkles' }),
+    badge: {
+      text: 'new',
+      class: 'vsm--badge_default',
+    },
+  },
+  {
+    href: '/',
+    title: 'Conversation Wizard',
+    icon: faIcon({ icon: 'fa-solid fa-wand-sparkles' }),
+    badge: {
+      text: 'new',
+      class: 'vsm--badge_default',
+    },
+  },
+  {
+    href: '/',
+    title: 'Message Wizard',
+    icon: faIcon({ icon: 'fa-solid fa-hat-wizard' }),
+    badge: {
+      text: 'new',
+      class: 'vsm--badge_default',
+      },
+    },
+ {
+    href: '/',
+    title: 'Launch Wizard',
+    icon: faIcon({ icon: 'fa-solid fa-rocket' }),
+    badge: {
+      text: 'new',
+      class: 'vsm--badge_default',
+      },
+    },    
+  {
     component: separator,
   },
   {
@@ -225,10 +261,7 @@ const menu = ref<MenuItem[]>([
     href: '/',
     title: 'Logout',
     icon: faIcon({ icon: 'fa-solid fa-cog' }),
-    badge: {
-      text: 'new',
-      class: 'vsm--badge_default',
-    },
+
   },
 ])
 
@@ -242,13 +275,13 @@ const themes = ref<Theme[]>([
   { name: 'Yellow theme', input: 'yellow-theme' },
 
 ])
-const selectedTheme = ref('yellow-theme')
+const selectedTheme = ref('emma-theme')
 const isOnMobile = ref(false)
 
 // Theme selector rendered as a small functional component and inserted into the menu
 const ThemeSelector = () =>
   h('div', { class: 'vsm-theme-selector', style: { padding: '8px' } }, [
-    h('div', { style: { marginBottom: '6px', fontWeight: 600 } }, ),
+    h('div', { style: { marginBottom: '6px', fontWeight: 600 } },),
     h(
       'select',
       {
@@ -327,13 +360,13 @@ function stopVsmObserver() {
   if (_vsmObserver) {
     try {
       _vsmObserver.disconnect()
-    } catch (e) {}
+    } catch (e) { }
     _vsmObserver = null
   }
   if (_docObserver) {
     try {
       _docObserver.disconnect()
-    } catch (e) {}
+    } catch (e) { }
     _docObserver = null
   }
 }
@@ -353,21 +386,9 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="layoutRoot" class="layout-root">
-    <sidebar-menu
-      v-model:collapsed="collapsed"
-      :menu="menu"
-      :theme="selectedTheme"
-      :show-one-child="true"
-      :smooth-scroll="true"
-      class="layout-sidebar"
-      @update:collapsed="onToggleCollapse"
-      @item-click="onItemClick"
-    />
-    <div
-      v-if="isOnMobile && !collapsed"
-      class="sidebar-overlay"
-      @click="collapsed = true"
-    />
+    <sidebar-menu v-model:collapsed="collapsed" :menu="menu" :theme="selectedTheme" :show-one-child="true"
+      :smooth-scroll="true" class="layout-sidebar" @update:collapsed="onToggleCollapse" @item-click="onItemClick" />
+    <div v-if="isOnMobile && !collapsed" class="sidebar-overlay" @click="collapsed = true" />
     <main class="layout-main" :class="[{ collapsed: collapsed }, { onmobile: isOnMobile }]">
       <div class="content-wrapper">
         <div class="container">
@@ -405,7 +426,7 @@ body {
   --vsm-item-color: var(--vsm-item-color, #e3e3e3);
   --sidebar-width: 290px;
   --sidebar-collapsed-width: 50px;
-  
+
   display: flex;
   min-height: 100vh;
   position: relative;
@@ -413,7 +434,8 @@ body {
 
 /* Layout sidebar styles */
 .layout-sidebar {
-  position: relative !important; /* Override the default fixed position */
+  position: relative !important;
+  /* Override the default fixed position */
   height: 100vh;
   flex-shrink: 0;
   border-right: 1px solid #bcbbbb;
@@ -423,7 +445,8 @@ body {
 /* Layout main content area */
 .layout-main {
   flex: 1;
-  min-width: 0; /* Prevent flex item from overflowing */
+  min-width: 0;
+  /* Prevent flex item from overflowing */
   background: var(--vsm-dropdown-bg, #e3e3e3);
   color: var(--vsm-item-color, #e3e3e3);
   padding: 20px;
@@ -443,12 +466,12 @@ body {
     left: 0;
     top: 0;
   }
-  
+
   .layout-main {
     margin-left: 0;
     width: 100%;
   }
-  
+
   .layout-main.onmobile {
     padding: 10px;
   }
@@ -473,10 +496,11 @@ body {
 .vsm-theme-selector {
   padding: 8px 12px;
 }
+
 .vsm-theme-selector select {
   width: 100%;
   padding: 6px 8px;
   border-radius: 4px;
-  border: 1px solid rgba(0,0,0,0.12);
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 </style>
