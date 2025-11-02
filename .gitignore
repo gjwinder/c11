@@ -1,3 +1,5 @@
-node_modules/
+node_modules/*
+!node_modules/vue-sidebar-menu/src/scss
+build/node_modules/*
+!node_modules/vue-sidebar-menu/src/scss
 build/
-.gitignore
